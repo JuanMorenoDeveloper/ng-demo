@@ -18,6 +18,7 @@
     <td>{{person.address.street}}<br/>
       {{person.address.city}}, {{person.address.state}} {{person.address.zip}}
     </td>
+	<td><a [routerLink]="['/edit', person.id]">{{person.name}}</a></td>
   </tr>
   </tbody>
 </table>

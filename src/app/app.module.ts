@@ -5,13 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './shared';
-import { HttpModule } from '@angular/http';
 import { EditComponent } from './edit/edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'edit/:id', component: EditComponent },
-  { path: '', redirectTo: '/search', pathMatch: 'full' }
+  { path: '', redirectTo: '/search', pathMatch: 'prefix' }
 ];
 
 
@@ -23,9 +23,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-	RouterModule.forRoot(appRoutes),
-	FormsModule,
-	HttpModule
+    RouterModule.forRoot(appRoutes),
+    FormsModule, HttpClientModule
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]
